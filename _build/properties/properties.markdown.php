@@ -17,8 +17,9 @@ $tmp = array(
 			array('text' => 'Markdown','value' => 'Markdown'),
 			array('text' => 'Parsedown','value' => 'Parsedown'),
 			array('text' => 'MarkdownExtra','value' => 'MarkdownExtra'),
+			array('text' => 'MarkdownExtended','value' => 'MarkdownExtended'),
 		),
-		'value' => 'MarkdownExtra',
+		'value' => 'MarkdownExtended',
 	),
 	'stripTags' => array(
 		'type' => 'textfield',

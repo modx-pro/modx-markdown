@@ -1,5 +1,12 @@
 Changelog for Markdown.
 
+1.0.0 rc1
+==============
+- Added MarkdownExtra extended from https://github.com/egil/php-markdown-extra-extended.
+- Set MarkdownExtended by default.
+- Improved handling of email tags.
+- Improved handling of tags in code.
+
 1.0.0 beta
 ==============
 - Initial release.

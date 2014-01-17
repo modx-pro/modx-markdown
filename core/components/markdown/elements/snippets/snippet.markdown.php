@@ -24,14 +24,15 @@ else {
 		: $resource->getTVValue($field);
 }
 
+// HTML tags in code
+$input = preg_replace_callback('/`.*`/s', function($matches) {
+	return htmlspecialchars($matches[0], ENT_QUOTES, 'UTF-8');
+}, $input);
+
 // Strip HTML tags
 if (!empty($stripTags)) {
-	// HTML tags in code
-	$input = preg_replace_callback('/```.*```/s', function($matches) {
-		return htmlspecialchars($matches[0], ENT_QUOTES, 'UTF-8');
-	}, $input);
 	// Markdown links, that looks like tag
-	$input = preg_replace('/<(.*?:\/\/.*?)>/', '&lt;$1&gt;', $input);
+	$input = preg_replace('#<(.*?(://|@).*?)>#', '&lt;$1&gt;', $input);
 	// Strip tags
 	if (is_numeric($stripTags)) {$stripTags = '';}
 	else {
@@ -73,12 +74,23 @@ switch(strtolower($type)) {
 		$input = Parsedown::instance()->parse($input);
 		break;
 
-	default:
+	case 'extra':
+	case 'markdownextra':
 		if (PHP_VERSION_ID < 50300) {return 'MarkdownExtra requires PHP 5.3 or later.';}
 		if (!class_exists('\Michelf\MarkdownExtra')) {
 			require MODX_CORE_PATH . 'components/markdown/lib/Michelf/MarkdownExtra.inc.php';
 		}
 		$input = \Michelf\MarkdownExtra::defaultTransform($input);
+		break;
+
+	case 'extended':
+	case 'markdownextended':
+	default:
+		if (!class_exists('MarkdownExtraExtended_Parser')) {
+			require MODX_CORE_PATH . 'components/markdown/lib/Extended/markdown_extended.php';
+		}
+		$parser = new MarkdownExtraExtended_Parser();
+		$input = $parser->transform($input);
 		break;
 }
 
