@@ -44,9 +44,9 @@ if (!empty($stripTags)) {
 		$stripTags = implode($tmp2);
 	}
 	$input = strip_tags($input, $stripTags);
-	// And decode entities
-	$input = html_entity_decode($input, ENT_QUOTES, 'UTF-8');
 }
+// And decode entities
+$input = html_entity_decode($input, ENT_QUOTES, 'UTF-8');
 
 // Parse MODX tags
 if (empty($escapeTags)) {
@@ -74,6 +74,16 @@ switch(strtolower($type)) {
 		$input = Parsedown::instance()->parse($input);
 		break;
 
+	case 'extended':
+	case 'markdownextended':
+		if (!class_exists('MarkdownExtraExtended_Parser')) {
+			require MODX_CORE_PATH . 'components/markdown/lib/Extended/markdown_extended.php';
+		}
+		$parser = new MarkdownExtraExtended_Parser();
+		$input = $parser->transform($input);
+		break;
+
+	default:
 	case 'extra':
 	case 'markdownextra':
 		if (PHP_VERSION_ID < 50300) {return 'MarkdownExtra requires PHP 5.3 or later.';}
@@ -81,16 +91,6 @@ switch(strtolower($type)) {
 			require MODX_CORE_PATH . 'components/markdown/lib/Michelf/MarkdownExtra.inc.php';
 		}
 		$input = \Michelf\MarkdownExtra::defaultTransform($input);
-		break;
-
-	case 'extended':
-	case 'markdownextended':
-	default:
-		if (!class_exists('MarkdownExtraExtended_Parser')) {
-			require MODX_CORE_PATH . 'components/markdown/lib/Extended/markdown_extended.php';
-		}
-		$parser = new MarkdownExtraExtended_Parser();
-		$input = $parser->transform($input);
 		break;
 }
 

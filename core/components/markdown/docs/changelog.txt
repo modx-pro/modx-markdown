@@ -1,5 +1,10 @@
 Changelog for Markdown.
 
+1.0.0 rc2
+==============
+- Improved code processing
+- Set MarkdownExtra by default due to issues.
+
 1.0.0 rc1
 ==============
 - Added MarkdownExtra extended from https://github.com/egil/php-markdown-extra-extended.

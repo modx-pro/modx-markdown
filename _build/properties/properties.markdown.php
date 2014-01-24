@@ -19,7 +19,7 @@ $tmp = array(
 			array('text' => 'MarkdownExtra','value' => 'MarkdownExtra'),
 			array('text' => 'MarkdownExtended','value' => 'MarkdownExtended'),
 		),
-		'value' => 'MarkdownExtended',
+		'value' => 'MarkdownExtra',
 	),
 	'stripTags' => array(
 		'type' => 'textfield',
