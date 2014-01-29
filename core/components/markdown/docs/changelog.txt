@@ -1,6 +1,6 @@
 Changelog for Markdown.
 
-1.0.0 rc2
+1.0.0 pl
 ==============
 - Improved code processing
 - Set MarkdownExtra by default due to issues.

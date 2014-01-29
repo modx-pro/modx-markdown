@@ -54,7 +54,7 @@ if (empty($escapeTags)) {
 }
 else {
 	// Escape MODX params
-	$input = preg_replace('/=`(.*?)`/s', '=&#96;$1&#96;', $input);
+	$input = preg_replace('/=`(.*?)`/', '=&#96;$1&#96;', $input);
 }
 
 // Parse!
