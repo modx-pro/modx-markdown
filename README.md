@@ -15,7 +15,7 @@ You can specify type of parser
 ```
 [[Markdown?type=`Markdown`]]
 [[Markdown?type=`MarkdownExtra`]]
-[[Markdown?Parsedown`]]
+[[Markdown?type=`Parsedown`]]
 ```
 
 The default is MarkdownExtra.
