@@ -6,7 +6,7 @@ Allows you to write site documents very easy:
 ```
 [[Markdown?
 	&id=`15`
-	&field=`[[+content]]`
+	&field=`content`
 ]]
 [[Markdown?field=`introtext`]]
 ```
