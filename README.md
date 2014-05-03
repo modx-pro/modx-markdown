@@ -18,7 +18,7 @@ You can specify type of parser (default is MarkdownExtra.)
 [[Markdown?type=`Parsedown`]]
 ```
 
-To allow the use of MODX tags within Markdown text, specify `&excapeTags` parameter. (default is 1)
+To allow the use of MODX tags within Markdown text, specify `&escapeTags` parameter. (default is 1)
 ```
 [[Markdown? &field=`content` &type=`Parsedown` &escapeTags=`0`]]
 ```
