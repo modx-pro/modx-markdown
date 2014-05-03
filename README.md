@@ -11,14 +11,17 @@ Allows you to write site documents very easy:
 [[Markdown?field=`introtext`]]
 ```
 
-You can specify type of parser
+You can specify type of parser (default is MarkdownExtra.)
 ```
 [[Markdown?type=`Markdown`]]
 [[Markdown?type=`MarkdownExtra`]]
 [[Markdown?type=`Parsedown`]]
 ```
 
-The default is MarkdownExtra.
+To allow the use of MODX tags within Markdown text, specify `&excapeTags` parameter. (default is 1)
+```
+[[Markdown? &field=`content` &type=`Parsedown` &escapeTags=`0`]]
+```
 
 Feel free to suggest ideas/improvements/bugs on GitHub:
 <http://github.com/bezumkin/modx-markdown/issues>
