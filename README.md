@@ -23,6 +23,11 @@ To allow the use of MODX tags within Markdown text, specify `&escapeTags` parame
 [[Markdown? &field=`content` &type=`Parsedown` &escapeTags=`0`]]
 ```
 
+Also this snippet can parse and process any string, that should be passed via `&raw` parameter.
+```
+[[Markdown? &raw=`[[+placeholder]]`]]
+```
+
 Feel free to suggest ideas/improvements/bugs on GitHub:
 <http://github.com/bezumkin/modx-markdown/issues>
 
