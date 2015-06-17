@@ -14,12 +14,11 @@ $tmp = array(
 	'type' => array(
 		'type' => 'list',
 		'options' => array(
-			array('text' => 'Markdown','value' => 'Markdown'),
-			array('text' => 'Parsedown','value' => 'Parsedown'),
-			array('text' => 'MarkdownExtra','value' => 'MarkdownExtra'),
-			array('text' => 'MarkdownExtended','value' => 'MarkdownExtended'),
+			array('text' => 'GitHub Flavored', 'value' => 'Parsedown'),
+			array('text' => 'Classic Markdown', 'value' => 'Markdown'),
+			array('text' => 'Markdown Extra', 'value' => 'MarkdownExtra'),
 		),
-		'value' => 'MarkdownExtra',
+		'value' => 'Parsedown',
 	),
 	'stripTags' => array(
 		'type' => 'textfield',

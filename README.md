@@ -6,27 +6,19 @@ Allows you to write site documents very easy:
 ```
 [[Markdown?
 	&id=`15`
-	&field=`content`
+	&field=`[[+content]]`
 ]]
 [[Markdown?field=`introtext`]]
 ```
 
-You can specify type of parser (default is MarkdownExtra.)
+You can specify type of parser
 ```
 [[Markdown?type=`Markdown`]]
 [[Markdown?type=`MarkdownExtra`]]
-[[Markdown?type=`Parsedown`]]
+[[Markdown?Parsedown`]]
 ```
 
-To allow the use of MODX tags within Markdown text, specify `&escapeTags` parameter. (default is 1)
-```
-[[Markdown? &field=`content` &type=`Parsedown` &escapeTags=`0`]]
-```
-
-Also this snippet can parse and process any string, that should be passed via `&raw` parameter.
-```
-[[Markdown? &raw=`[[+placeholder]]`]]
-```
+The default is MarkdownExtra.
 
 Feel free to suggest ideas/improvements/bugs on GitHub:
 <http://github.com/bezumkin/modx-markdown/issues>
