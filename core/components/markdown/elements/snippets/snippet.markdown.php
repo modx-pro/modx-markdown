@@ -88,7 +88,11 @@ switch(strtolower($type)) {
 
 // Escape MODX tags
 if (!empty($escapeTags)) {
-	$input = str_replace(array('[',']','&amp;#96;'), array('&#91;','&#93;','&#96;'), $input);
+	$input = str_replace(
+		array('[', ']', '&amp;#96;', '{', '}'),
+		array('&#91;', '&#93;', '&#96;', '&#123;', '&#125;'),
+		$input
+	);
 }
 
 return $input;

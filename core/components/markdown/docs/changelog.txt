@@ -3,6 +3,7 @@ Changelog for Markdown.
 1.1.2 pl
 ==============
 - Updated Parsedown to version 1.6.0.
+- Added Fenom tags to escaped characters.
 
 1.1.1 pl
 ==============
