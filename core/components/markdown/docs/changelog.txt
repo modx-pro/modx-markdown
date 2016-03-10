@@ -1,5 +1,9 @@
 Changelog for Markdown.
 
+1.2.0 pl
+==============
+- Ability to use snippet as output modifier.
+
 1.1.2 pl
 ==============
 - Updated Parsedown to version 1.6.0.
