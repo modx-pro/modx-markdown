@@ -11,6 +11,7 @@ $tmp = array(
         'type' => 'textfield',
         'value' => 'content',
     ),
+    /*
     'type' => array(
         'type' => 'list',
         'options' => array(
@@ -20,6 +21,7 @@ $tmp = array(
         ),
         'value' => 'Parsedown',
     ),
+    */
     'stripTags' => array(
         'type' => 'combo-boolean',
         'value' => false,

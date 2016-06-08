@@ -1,5 +1,12 @@
 Changelog for Markdown.
 
+1.3.0 pl
+==============
+- Updated Parsedown.
+- Added Parsedown Extra 0.7.0.
+- Removed all other old markdown parsers.
+- Removed &type property.
+
 1.2.0 pl
 ==============
 - Ability to use snippet as output modifier.

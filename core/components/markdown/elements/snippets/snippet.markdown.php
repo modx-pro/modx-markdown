@@ -1,8 +1,5 @@
 <?php
 /** @var array $scriptProperties */
-if (empty($type)) {
-    $type = 'Parsedown';
-}
 if (empty($field)) {
     $field = 'content';
 } else {
@@ -57,42 +54,12 @@ $input = html_entity_decode($input, ENT_QUOTES, 'UTF-8');
 if (empty($escapeTags)) {
     $input = $modx->newObject('modChunk')->process(null, $input);
 } else {
-    // Escape MODX params
     $input = preg_replace('/=`(.*?)`/', '=&#96;$1&#96;', $input);
 }
 
 // Parse!
-switch (strtolower($type)) {
-    case 'markdown':
-        if (PHP_VERSION_ID < 50300) {
-            return 'Markdown requires PHP 5.3 or later.';
-        }
-        if (!class_exists('\Michelf\Markdown')) {
-            require MODX_CORE_PATH . 'components/markdown/lib/Michelf/Markdown.inc.php';
-        }
-        $input = \Michelf\Markdown::defaultTransform($input);
-        break;
-    case 'extra':
-    case 'markdownextra':
-        if (PHP_VERSION_ID < 50300) {
-            return 'MarkdownExtra requires PHP 5.3 or later.';
-        }
-        if (!class_exists('\Michelf\MarkdownExtra')) {
-            require MODX_CORE_PATH . 'components/markdown/lib/Michelf/MarkdownExtra.inc.php';
-        }
-        $input = \Michelf\MarkdownExtra::defaultTransform($input);
-        break;
-    case 'parsedown':
-    case 'extended':
-    case 'markdownextended':
-    default:
-        if (!class_exists('Parsedown')) {
-            require MODX_CORE_PATH . 'components/markdown/lib/Parsedown.php';
-        }
-        $input = Parsedown::instance()->text($input);
-        break;
-
-}
+require_once MODX_CORE_PATH . 'components/markdown/vendor/autoload.php';
+$input = ParsedownExtra::instance()->text($input);
 
 // Escape MODX tags
 if (!empty($escapeTags)) {

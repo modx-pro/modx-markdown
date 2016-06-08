@@ -1,2 +1,4 @@
 .idea
 config.core.php
+/core/components/markdown/vendor/
+/core/components/markdown/composer.lock

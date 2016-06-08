@@ -15,26 +15,49 @@ function getSnippetContent($filename)
 
 
 /**
- * Recursive directory remove
+ * Recursive directory delete
  *
  * @param $dir
  */
-function rrmdir($dir)
+function removeDir($dir)
 {
+    $dir = rtrim($dir, '/');
     if (is_dir($dir)) {
         $objects = scandir($dir);
-
         foreach ($objects as $object) {
-            if ($object != "." && $object != "..") {
-                if (filetype($dir . "/" . $object) == "dir") {
-                    rrmdir($dir . "/" . $object);
+            if ($object != '.' && $object != '..') {
+                if (is_dir($dir . '/' . $object)) {
+                    removeDir($dir . '/' . $object);
                 } else {
-                    unlink($dir . "/" . $object);
+                    unlink($dir . '/' . $object);
                 }
             }
         }
-
-        reset($objects);
         rmdir($dir);
+    }
+}
+
+
+/**
+ * @param $base
+ */
+function cleanPackages($base)
+{
+    if ($dirs = @scandir($base)) {
+        foreach ($dirs as $dir) {
+            if (in_array($dir, array('.', '..'))) {
+                continue;
+            }
+            $path = $base . $dir;
+            if (is_dir($path)) {
+                if (in_array($dir, array('test'))) {
+                    removeDir($path);
+                } else {
+                    cleanPackages($path . '/');
+                }
+            } elseif (pathinfo($path, PATHINFO_EXTENSION) != 'php') {
+                unlink($path);
+            }
+        }
     }
 }
