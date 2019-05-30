@@ -50,6 +50,10 @@ if (!empty($stripTags)) {
 // And decode entities
 $input = html_entity_decode($input, ENT_QUOTES, 'UTF-8');
 
+// Remove possible BOM from start of string
+$bom = pack('H*', 'EFBBBF');
+$input = str_replace($bom, '', $input);
+
 // Parse MODX tags
 if (empty($escapeTags)) {
     $input = $modx->newObject('modChunk')->process(null, $input);
